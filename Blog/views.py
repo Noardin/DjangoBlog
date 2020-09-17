@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Articles
+from .models import Articles, Comments
 
 def articles(request, article_id =0, expand_comments='false'):
 
@@ -14,5 +14,5 @@ def articles(request, article_id =0, expand_comments='false'):
     return render(request, 'blog/article_detail.html', context= context)
 
 def add_comment(request):
-
+    Comment = Comments(comment_author=request.user, comment_article=)
     return articles(request)

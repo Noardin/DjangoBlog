@@ -3,7 +3,9 @@
     <a data-toggle="collapse" href="#comment_wrapper" role="button" aria-expanded="{{ expand_comments }}" aria-controls="comment_wrapper">komentare</a>
     </div>
     <div class="collapse {% if expand_comments == "true" %}show{% endif %} row mt-2" id="comment_wrapper">
+
     <form class="form-inline col p-0" method="post" action="{% url 'add_comment' %}">
+        {% csrf_token %}
         <div class="form-group mb-2 col-md-1">
             <label class="sr-only" for="staticUser">User</label>
             <input type="text" readonly class="form-control-plaintext" id="staticUser" value="{{ user.username }}">
@@ -12,8 +14,9 @@
              <label class="sr-only" for="comment_text">Comment Text</label>
              <textarea class="form-control" style="width:100%;" id="comment_text" rows="4" placeholder="comment on article here..."></textarea>
         </div>
-        <div class="form-group mb-3 col-md-1" style="height: 100%">
-            <button type="submit" class="btn btn-primary bottom">a</button>
+        <input type="hidden" id="article_id" value="{{article.id}}"></input>
+        <div class="form-group mb-3 col-md-1 justify-content-center">
+            <button type="submit" class="btn btn-primary btn-circle btn-md"><i class="fas fa-arrow-right" style="font-size:3em"></i></button>
         </div>
 
     </form>
