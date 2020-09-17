@@ -1,0 +1,40 @@
+
+.article_header{
+    background-color: royalblue;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+.a_detials >div> span{
+    font-family: "Times New Roman";
+    font-size: 1em;
+    margin: 0;
+}
+.a_header {
+    font-family: "Arial Black";
+    color: white;
+    margin: 2vw;
+    font-size: 2.5em;
+}
+.a_author{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vw;
+    text-align: right;
+}
+.a_text{
+
+    margin: 5px 0 5px 0;
+}
+.article_wrapper{
+     padding: 2vw;
+    border-radius:5px;
+    background-color: lightgray;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+.bottom{
+    position: absolute;
+    bottom:0;
+}

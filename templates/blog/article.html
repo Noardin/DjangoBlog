@@ -1,0 +1,25 @@
+{% extends "blog/index.html" %}
+
+{% block content %}
+     {% for article in article_list %}
+         <div class="article_wrapper container-fluid p-5">
+             {% include 'blog/article_header.html' %}
+            <div class="a_text row">
+                {{ article.article_text|truncatewords:5 }}
+                {% if article.article_text|wordcount > 5 %}
+                <a class="a_readmore" href="{% url 'article' article.id %}">read more</a>
+             {% endif %}
+            </div>
+
+            <div class="a_detials row">
+                    <div class="col text-left"><span>autor:</span> {{ article.article_author.username }}</div>
+                    <div class="col text-right"><span>datum: </span>{{ article.pub_date|date:"j.n.Y"}}</div>
+            </div>
+            <div class="row">
+                <a class="a_comment" href="{% url 'article_comment' article.id 'true' %}">komentovat</a>
+            </div>
+
+         </div>
+     {% endfor %}
+
+{% endblock %}

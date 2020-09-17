@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-between navbar-nav" id="navbarNav">
+    <div class="nav-item active">
+        <a class="nav-link" href="{% url 'articles' %}">Clanky</a>
+    </div>
+      {% if not user.is_authenticated %}
+           <div class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </div>
+
+
+      {% else %}
+         <div class="nav-item">
+            <a class="nav-link" href="{% url 'admin:index' %}">pridat clanek</a>
+          </div>
+          <div class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </div>
+      {% endif %}
+
+  </div>
+</nav>

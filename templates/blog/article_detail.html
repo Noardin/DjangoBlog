@@ -1,0 +1,22 @@
+{% extends "blog/index.html" %}
+
+{% block content %}
+         <div class="article_wrapper container-fluid p-5">
+
+             {% include 'blog/article_header.html' %}
+
+
+            <div class="a_text row">
+                {{ article.article_text}}
+            </div>
+
+            <div class="a_detials row">
+                    <div class="col text-left"><span>autor:</span> {{ article.article_author.username }}</div>
+                    <div class="col text-right"><span>datum: </span>{{ article.pub_date|date:"j.n.Y"}}</div>
+            </div>
+
+             {% include 'blog/article_comments.html' %}
+
+
+         </div>
+{% endblock %}
