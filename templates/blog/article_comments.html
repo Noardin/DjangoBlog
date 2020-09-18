@@ -12,9 +12,9 @@
         </div>
          <div class="form-group mb-2 col-md-10">
              <label class="sr-only" for="comment_text">Comment Text</label>
-             <textarea class="form-control" style="width:100%;" id="comment_text" rows="4" placeholder="comment on article here..."></textarea>
+             <textarea name="comment_text" class="form-control" style="width:100%;" id="comment_text" rows="4" placeholder="comment on article here..."></textarea>
         </div>
-        <input type="hidden" id="article_id" value="{{article.id}}"></input>
+        <input name="article_id" type="hidden" id="article_id" value="{{article.id}}"></input>
         <div class="form-group mb-3 col-md-1 justify-content-center">
             <button type="submit" class="btn btn-primary btn-circle btn-md"><i class="fas fa-arrow-right" style="font-size:3em"></i></button>
         </div>

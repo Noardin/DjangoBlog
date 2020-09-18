@@ -14,5 +14,7 @@ def articles(request, article_id =0, expand_comments='false'):
     return render(request, 'blog/article_detail.html', context= context)
 
 def add_comment(request):
-    Comment = Comments(comment_author=request.user, comment_article=)
+    if request.method == "POST":
+        Article = Articles.objects.get(pk=request.POST['article_id'])
+        Comment = Comments(comment_author=request.user, comment_article=Article, comment_text=request.POST["comment_text"])
     return articles(request)
