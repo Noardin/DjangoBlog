@@ -1,13 +1,17 @@
 {% extends "blog/index.html" %}
 
 {% block content %}
-         <div class="article_wrapper container-fluid p-5">
+    <div class="article_wrapper p-5">
+        <div class=" container-fluid">
 
              {% include 'blog/article_header.html' %}
 
 
-            <div class="a_text row">
-                {{ article.article_text}}
+            <div class="mt-1 mb-1 row">
+                <div class="col"> {{ article.article_text}}</div>
+
+
+
             </div>
 
             <div class="a_detials row">
@@ -19,4 +23,6 @@
 
 
          </div>
+    </div>
+
 {% endblock %}
