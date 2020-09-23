@@ -5,7 +5,7 @@ from django.dispatch import receiver
 import os
 
 def get_photo_path(instance, filename):
-    return os.path.join('photos', str(instance.id), filename)
+    return os.path.join('../photos', str(instance.id), filename)
 
 
 # Create your models here.

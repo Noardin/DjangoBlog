@@ -5,24 +5,24 @@
     </div>
 
     <div class="collapse {% if expand_comments == "true" %}show{% endif %} row mt-2" id="comment_wrapper">
-    {%  if user.is_authenticated %}
         <div class="col">
-            <form class="form-inline row" method="post" action="{% url 'add_comment' %}">
+    {%  if user.is_authenticated %}
+
+            <form class="form-inline row" method="post" action="{% url 'add_comment' article.id %}">
                 {% csrf_token %}
                 <div class="mb-2 col-1 text-center">
-                    {{ user.username }}
+                    <img class="rounded-circle mx-auto d-block img-thumbnail" alt="profile_image" src="{{ user.profile.profile_image.url }}">
                 </div>
                  <div class="mb-2 col">
                      <label class="sr-only" for="comment_text">Comment Text</label>
                      <textarea name="comment_text" class="form-control" style="width:100%;" id="comment_text" rows="2" placeholder="comment on article here..."></textarea>
                 </div>
-                <input name="article_id" type="hidden" id="article_id" value="{{article.id}}"></input>
                 <div class=" mb-3 col-auto justify-content-center">
                     <button type="submit" class="btn btn-primary btn-circle btn-md"><i class="fas fa-arrow-right" style="font-size:3em"></i></button>
                 </div>
             </form>
     {% else %}
-                <div class="p-2">musite byt prihlaseni aby jste mohli komentovat</div>
+                <div class="p-2 row">musite byt prihlaseni aby jste mohli komentovat</div>
     {% endif %}
             <hr/>
             {% for comment in comments %}

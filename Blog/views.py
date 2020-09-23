@@ -14,16 +14,17 @@ def articles(request, article_id =0, expand_comments='false'):
         return render(request, 'blog/article.html', context=context)
     article = articles_list.get(pk=article_id)
     comment_list = Comments.objects.all()
+
     context = {'article': article, 'expand_comments': expand_comments, 'comments': comment_list}
     return render(request, 'blog/article_detail.html', context= context)
 
 
-def add_comment(request):
+def add_comment(request, article_id):
     if request.method == "POST":
-        Article = Articles.objects.get(pk=request.POST['article_id'])
+        Article = Articles.objects.get(pk=article_id)
         Comment = Comments(comment_author=request.user, comment_article=Article, comment_text=request.POST['comment_text'])
         Comment.save()
-    return redirect(articles,article_id=request.POST["article_id"], expand_comments='true')
+    return redirect(articles,article_id=article_id, expand_comments='true')
 
 
 def sign_up(request):
